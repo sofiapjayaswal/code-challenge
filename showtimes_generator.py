@@ -3,22 +3,21 @@
 # Purpose: generate show times for movies in a theatre based on a given file of movies showing
 
 import sys
+from datetime import *
 from showtimes_funcs import *
 
 # check if number of arguments passed is correct, if not exit
-if len(sys.argv) > 4:
-    print("Error: Too many arguments passed. Usage: showtimes_generator.py filename Day date(MM/DD/YYYY)")
+if len(sys.argv) > 2:
+    print("Error: Too many arguments passed. Usage: showtimes_generator.py filename")
     quit()
 
-# set variables equal to arguments passed
+# set variable equal to argument passed
 filename = sys.argv[1]
-day = sys.argv[2]
-date = sys.argv[3]
+# get today's date
+today = date.today()
+date = today.strftime("%A %m/%d/%Y")
+print(date)
 
-# validating day passed
-if day == ("Monday" or "Tuesday" or "Wednesday" or "Thursday" or "Friday" or "Saturday" or "Sunday"):
-    print(day + " is not a valid day in the week")
-    quit()
 
 # initializing other variables
 weekday_open = "8:00"
@@ -30,6 +29,7 @@ weekend_close = "11:30"
 movie_array = build_movie_array(filename)
 
 for movie in movie_array:
+
 
 
 

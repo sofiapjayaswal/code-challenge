@@ -28,8 +28,8 @@ def build_movie_array(filename):
         movie_array.append(movie)
 
     return movie_array
-
-def subtract_times(time1, time2):
-
-def compare_times(time1, time2):
+#
+# def subtract_times(time1, time2):
+#
+# def compare_times(time1, time2):
 
