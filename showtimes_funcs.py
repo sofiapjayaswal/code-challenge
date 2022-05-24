@@ -28,8 +28,13 @@ def build_movie_array(filename):
         movie_array.append(movie)
 
     return movie_array
-#
-# def subtract_times(time1, time2):
-#
-# def compare_times(time1, time2):
+
+def get_showtime(movie_runtime, closing_time, opening_time, ):
+    hours_minutes = movie_runtime.split(":")
+    runtime_hour = int(hours_minutes[0])
+    runtime_minutes = int(hours_minutes[1])
+
+def subtract_times(time1, time2):
+
+def compare_times(time1, time2):
 
