@@ -19,11 +19,13 @@ today = date.today()
 date = today.strftime("%A %m/%d/%Y")
 day = today.strftime("%A")
 
-# initializing opening and closing variables
+# initializing opening and closing variables and other important theatre variables (subject to change)
 weekday_open = "8:00"
 weekday_close = "23:00"
 weekend_open = "10:30"
 weekend_close = "23:30"
+cleanup_time = 35
+setup_time = 1
 
 # determining today's opening and closing times
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday"]
@@ -42,7 +44,8 @@ movie_array = build_movie_array(filename)
 
 for movie in movie_array:
     runtime = movie.get_runtime()
-    showtime = get_showtime(runtime, today_open, today_close)
+    showtime = get_showtime(runtime, today_open, today_close, cleanup_time, setup_time)
+    print(showtime)
 
 
 
