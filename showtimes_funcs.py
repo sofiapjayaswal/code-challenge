@@ -33,7 +33,10 @@ def build_movie_array(filename):
 def get_showtimes(movie_runtime, opening_time, closing_time, cleanup_time, setup_time):
     # initialize array of showtimes (will be an array of arrays -> inner array being start and end time of movies)
     show_times = []
-
+    # converting all times to total number of minutes to make math simpler
+    movie_runtime = convert_to_minutes(movie_runtime)
+    opening_time = convert_to_minutes(opening_time)
+    closing_time = convert_to_minutes(closing_time)
     # accounting for cleanup and setup time (limits in when the movies can start/end)
     upper_bound = closing_time - cleanup_time
     lower_bound = opening_time + setup_time
@@ -48,13 +51,8 @@ def get_showtimes(movie_runtime, opening_time, closing_time, cleanup_time, setup
         # checking if time is clean (ending in 0 or 5)
         remainder = start_time % 10  # gives us last digit of start_time
         if remainder != 0 or remainder != 5:
-            # checking whether to subtract down so last digit is 0 or 5
-            if remainder > 5:
-                start_time = start_time - (remainder - 5)
-                end_time = end_time - (remainder-5)  # also have to account for change in end_time
-            else:
-                start_time = start_time - remainder
-                end_time = end_time - remainder
+            start_time = get_clean_time(remainder, start_time)
+            end_time = get_clean_time(remainder, end_time)
         # converting start and end times back to strings (displaying hours and minutes) so readable for the schedule
         string_start_time = convert_to_hours_minutes(start_time)
         string_end_time = convert_to_hours_minutes(end_time)
@@ -65,6 +63,16 @@ def get_showtimes(movie_runtime, opening_time, closing_time, cleanup_time, setup
         show_times.append(show_time)
     return show_times
 
+
+def get_clean_time(remainder, time):
+    # checking whether to subtract down so last digit is 0 or 5
+    if remainder > 5:  # if greater than 5, want to subtract down to 5 instead of all the way to 0
+        time = time - (remainder - 5)
+    else:
+        time = time - remainder
+    return time
+
+
 def convert_to_minutes(time):
     # splitting up hours and minutes
     hours_minutes = time.split(":")
@@ -74,7 +82,6 @@ def convert_to_minutes(time):
     # calculating total minutes through multiplying hours by 60 and adding minutes
     total_minutes = int(hours_minutes[0])*60 + int(hours_minutes[1])
     return total_minutes
-
 
 def convert_to_hours_minutes(time):
     # dividing time by 60 to get hours

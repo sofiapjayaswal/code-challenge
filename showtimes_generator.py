@@ -46,12 +46,8 @@ movie_array = build_movie_array(filename)
 
 # getting all showtimes for
 for movie in movie_array:
-    # converting all times to total number of minutes to make math simpler
-    runtime_in_minutes = convert_to_minutes(movie.get_runtime())
-    open_in_minutes = convert_to_minutes(today_open)
-    close_in_minutes = convert_to_minutes(today_close)
 
-    showtimes = get_showtimes(runtime_in_minutes, open_in_minutes, close_in_minutes, cleanup_time, setup_time)
+    showtimes = get_showtimes(movie.get_runtime(), today_open, today_close, cleanup_time, setup_time)
     movie.showtimes = showtimes
 
 print_schedule(sys.argv, date, movie_array)
