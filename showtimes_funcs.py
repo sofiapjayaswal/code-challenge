@@ -41,19 +41,28 @@ def get_showtime(movie_runtime, opening_time, closing_time, cleanup_time, setup_
     lower_bound = open_in_minutes + setup_time
 
     # initialize start and end times
-    end_time = close_in_minutes ## will account for clean up time in the while loop
-    start_time = close_in_minutes
+    end_time = close_in_minutes  # will account for clean up time in the while loop
+    start_time = close_in_minutes  # need this to be equal to close time initially so you can calculate correct end time
+    # looping from closing to opening to find last shows first and first shows last
     while lower_bound <= (end_time - cleanup_time - runtime_in_minutes) <= upper_bound:
         # thing to think about: what about the last go do I want to subtract 35 minutes still?
         show_time = []
         temp = end_time
-        # endtime is equal to start time accounting for cleanup_time
+        # end_time is equal to the start time coming after this showing minus cleanup_time
         end_time = start_time - cleanup_time
         start_time = temp - cleanup_time - runtime_in_minutes
-
-
+        # checking if time is clean (ending in 0 or 5)
+        remainder = start_time % 10 # gives us last digit of start_time
+        if remainder != 0 or remainder != 5:
+            # checking whether to subtract down so last digit is 0 or 5
+            if remainder > 5:
+                start_time = start_time - (remainder - 5)
+            else:
+                start_time = start_time - remainder
+        # converting start and end times back to strings (displaying hours and minutes) so readable for the schedule
+        string_start_time = convert_to_hours_minutes(start_time)
+        string_end_time = convert_to_hours_minutes(end_time)
     return show_times
-
 
 
 def convert_to_minutes(time):
@@ -66,7 +75,15 @@ def convert_to_minutes(time):
     total_minutes = int(hours_minutes[0])*60 + int(hours_minutes[1])
     return total_minutes
 
+
 def convert_to_hours_minutes(time):
+    # dividing time by 60 to get hours
+    hours = time // 60
+    # get remainder indicating minutes
+    minutes = time % 60
+    # convert to string and add colon in between hours and minutes
+    string_time = str(hours) + ":" + str(minutes)
+    return string_time
 
 # def subtract_times(time1, time2):
 #
