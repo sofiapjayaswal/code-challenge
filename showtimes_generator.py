@@ -11,15 +11,14 @@ if len(sys.argv) > 2:
     print("Error: Too many arguments passed. Usage: showtimes_generator.py filename")
     quit()
 
-# initiating all variables
 # set variable equal to argument passed
 filename = sys.argv[1]
 # get today's date
 today = date.today()
 date = today.strftime("%A %m/%d/%Y")
-day = today.strftime("%A")
+day = today.strftime("%A")  # have to get day individually to get hours for the day
 
-# initializing opening and closing variables and other important theatre variables (subject to change)
+# initializing opening and closing variables (subject to change)
 weekday_open = "8:00"
 weekday_close = "23:00"
 weekend_open = "10:30"
@@ -29,27 +28,25 @@ weekend_close = "23:30"
 setup_time = 60
 cleanup_time = 35
 
-# determining today's opening and closing times
+# determining today's opening and closing times based on the day
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday"]
 if day in weekdays:
     today_open = weekday_open
     today_close = weekday_close
-else:
+else:  # weekend
     today_open = weekend_open
     today_close = weekend_close
 
-# print(today_open)
-# print(today_close)
-
-# build movie array based on file passed
+# build an array of Movie objects based on file passed
 movie_array = build_movie_array(filename)
 
-# getting all showtimes for
+# getting showtimes for each movie
 for movie in movie_array:
-
+    # get_showtimes function returns an array of arrays
     showtimes = get_showtimes(movie.get_runtime(), today_open, today_close, cleanup_time, setup_time)
-    movie.showtimes = showtimes
+    movie.set_showtimes(showtimes)  # setting instance variable equal to returned array
 
+# print schedule in correct format
 print_schedule(sys.argv, date, movie_array)
 
 
