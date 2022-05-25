@@ -24,6 +24,7 @@ weekday_open = "8:00"
 weekday_close = "23:00"
 weekend_open = "10:30"
 weekend_close = "23:30"
+
 # initialize variables for minutes taken to set up theatre in morning and clean up in between each movie
 setup_time = 60
 cleanup_time = 35
@@ -37,17 +38,23 @@ else:
     today_open = weekend_open
     today_close = weekend_close
 
-print(today_open)
-print(today_close)
+# print(today_open)
+# print(today_close)
 
 # build movie array based on file passed
 movie_array = build_movie_array(filename)
 
+# getting all showtimes for
 for movie in movie_array:
-    runtime = movie.get_runtime()
-    print(movie.get_name())
-    showtime = get_showtimes(runtime, today_open, today_close, cleanup_time, setup_time)
-    print(showtime)
+    # converting all times to total number of minutes to make math simpler
+    runtime_in_minutes = convert_to_minutes(movie.get_runtime())
+    open_in_minutes = convert_to_minutes(today_open)
+    close_in_minutes = convert_to_minutes(today_close)
+
+    showtimes = get_showtimes(runtime_in_minutes, open_in_minutes, close_in_minutes, cleanup_time, setup_time)
+    movie.showtimes = showtimes
+
+print_schedule(sys.argv, date, movie_array)
 
 
 
