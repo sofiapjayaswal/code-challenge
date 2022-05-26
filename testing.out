@@ -5,7 +5,7 @@ Error: Too many arguments passed. Usage: showtimes_generator.py filename
 TEST 2: testing with test1.txt
 showtimes_generator.py test1.txt
 
-Wednesday 05/25/2022
+Thursday 05/26/2022
 
 There's Something About Mary, 1998 - Rated  R,  2:14
   11:40 - 13:54
@@ -121,7 +121,7 @@ Mean Girls, 2004 - Rated  PG-13,  1:37
 TEST 3: testing with test2.txt
 showtimes_generator.py test2.txt
 
-Wednesday 05/25/2022
+Thursday 05/26/2022
 
 Ciao Alberto, 2021 - Rated  G,  8
   9:30 - 9:38
@@ -230,7 +230,7 @@ A Dog's Life, 1918 - Rated  NR,  33
 TEST 4: testing with test3.txt
 showtimes_generator.py test3.txt
 
-Wednesday 05/25/2022
+Thursday 05/26/2022
 
 Fanny and Alexander, 1982 - Rated  R,  5:12
   11:20 - 16:32
