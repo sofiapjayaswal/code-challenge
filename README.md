@@ -40,8 +40,8 @@ other two files are in.
 
 ### Testing
 *testing.sh* provides some test cases testing *showtimes_generator.py*. The program is tested using invalid number 
-of arguments passed on the command line, several movies, short movies, and long movies. *testing.out* is the output of 
-*testing.sh*.
+of arguments passed on the command line, several movies, short movies, and long movies. These movies are in *test1.txt*, 
+*test2.txt*, and *test3.txt*. *testing.out* is the output of *testing.sh*.
 
 To test and have output in stdout, call line below on command line:
 ```bash
