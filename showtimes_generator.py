@@ -42,7 +42,7 @@ movie_array = build_movie_array(filename)
 
 # getting showtimes for each movie
 for movie in movie_array:
-    # get_showtimes function returns an array of arrays
+    # get_showtimes function returns an array of arrays (inner arrays represent individual showtimes with end and start)
     showtimes = get_showtimes(movie.get_runtime(), today_open, today_close, cleanup_time, setup_time)
     movie.set_showtimes(showtimes)  # setting instance variable equal to returned array
 

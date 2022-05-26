@@ -1,0 +1,8 @@
+Movie Title, Release Year, MPAA Rating, Run Time
+Fanny and Alexander, 1982, R, 5:12
+The Deluge, 1974, PG-13, 5:15
+Mysteries of Lisbon, 2010, NR, 4:32
+Gettysburg, 1993, PG, 4:31
+Apocalypse Now Redux, 2019, R, 3:22
+Cleopatra, 1963, G, 3:53
+Once Upon a Time in America, 1984, R, 4:11
