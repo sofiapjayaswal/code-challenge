@@ -3,7 +3,7 @@
 # testing.sh - test showtimes_generator.py
 #
 # input: none
-# output: Error messages and rankings of matches
+# output: Error messages and schedules for movies
 #
 # usage: ./testing.sh (./testing.sh &> testing.out if you want to put output in a file rather than stdout)
 # Note: remember to do chmod +x testing.sh, and output may vary depending on day you run (opening+closing times differ)
