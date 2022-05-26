@@ -30,6 +30,10 @@ Example of usage:
 ```bash
 python showtimes_generator.py moviesfile.txt
 ```
+If you would like to redirect output to a file:
+```bash
+python showtimes_generator.py moviesfile.txt &> output_file
+```
 
 ### Assumptions
 The program assumes that the text files passed in on the command line have a header on the first line. Further, it also 
