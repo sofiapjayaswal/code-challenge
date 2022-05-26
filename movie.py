@@ -33,5 +33,5 @@ class Movie:
         # looping backwards through the list since earlier showtimes are last in the list
         for i in range(len(self.showtimes)-1, -1, -1):
             showtime_string = showtime_string + self.showtimes[i][0] + " - " + self.showtimes[i][1] + "\n  "
-        return self.name + " - Rated " + self.rating + ", " + self.runtime + "\n" + showtime_string
+        return self.name + "," + self.release_year + " - Rated " + self.rating + ", " + self.runtime + "\n" + showtime_string
 

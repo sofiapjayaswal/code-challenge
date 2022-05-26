@@ -4,7 +4,6 @@
 
 from movie import Movie
 
-
 # Purpose: build an array of Movie objects based on the file passed
 # Parameters: filename
 # Return: array of Movie objects
@@ -37,7 +36,7 @@ def build_movie_array(filename):
 
 # Purpose: get show times for a movie
 # Parameters: movie_runtime, opening_time, closing_time, cleanup_time, setup_time
-# Return: array of arrays (inner array: individual show  with start and end time)
+# Return: array of arrays (inner array: individual show time with start and end time)
 def get_showtimes(movie_runtime, opening_time, closing_time, cleanup_time, setup_time):
     # initialize array of all show times
     show_times = []
@@ -74,6 +73,7 @@ def get_showtimes(movie_runtime, opening_time, closing_time, cleanup_time, setup
         show_times.append(show_time)
     return show_times
 
+
 # Purpose: make a time 'clean' (ending in 0 or 5)
 # Parameters: remainder, time
 # Return: cleaned up time
@@ -81,18 +81,18 @@ def get_clean_time(remainder, time):
     # checking whether to subtract down so last digit is 0 or 5
     if remainder > 5:  # if greater than 5, want to subtract down to 5 instead of all the way to 0
         time = time - (remainder - 5)
-    else: # want to subtract down to 0 if remainder is less than 5
+    else:  # want to subtract down to 0 if remainder is less than 5
         time = time - remainder
     return time
 
 
-# Purpose: convert a time that is in string format (hours: minutes or just minutes) to total number of minutes
+# Purpose: convert a time that is in string format (hours:minutes or just minutes) to total number of minutes
 # Parameters: time
-# Return: int total_minutes representing the time
+# Return: total_minutes representing the time in only minutes
 def convert_to_minutes(time):
     # splitting up hours and minutes
     hours_minutes = time.split(":")
-    # checking if time has hours and minutes or just minutes (more important for runtime)
+    # checking if time has hours and minutes or just minutes (for runtime)
     if len(hours_minutes) == 1:
         return int(hours_minutes[0])
     # calculating total minutes through multiplying hours by 60 and adding minutes
@@ -102,7 +102,7 @@ def convert_to_minutes(time):
 
 # Purpose: converting an integer time to a string time (format-> 'hours:minutes')
 # Parameters: time
-# Return: string_time om correct format
+# Return: string_time in correct format
 def convert_to_hours_minutes(time):
     # dividing time by 60 to get hours
     hours = time // 60
@@ -120,7 +120,7 @@ def print_schedule(user_input, date, movies_array):
     print(user_input[0] + " " + user_input[1] + "\n")  # print call by user
     print(date + "\n")
     for movie in movies_array:
-        print(movie) # use __str__ function to print each Movie object out in correct format
+        print(movie)  # use __str__ in Movie class function to print each Movie object out in correct format
 
 
 
