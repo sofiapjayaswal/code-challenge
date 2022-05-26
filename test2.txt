@@ -1,7 +1,7 @@
 Movie Title, Release Year, MPAA Rating, Run Time
 Ciao Alberto, 2021, G, 8
 If Anything Happens I Love You, 2020, PG, 12
-Bao, 2018, G, 8
+Bao, 2018,G, 8
 Two Distant Strangers, 2020, NR, 29
 A Trip to the Moon, 1902, NR, 14
 A Dog's Life, 1918, NR, 33

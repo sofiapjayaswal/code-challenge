@@ -1,5 +1,5 @@
 # Author: Sofia Jayaswal
-# Date: 05/23/2022
+# Date: 05/25/2022
 # Purpose: helper functions for generating schedule
 
 from movie import Movie
@@ -18,8 +18,10 @@ def build_movie_array(filename):
 
     # creating movie objects for each line and adding to array
     for line in lines_in_file:
-        stripped_line = line.strip()  # stripping  white space
-        movie_info = stripped_line.split(", ")  # splitting by commas and spaces
+        stripped_line = line.strip()  # stripping white space
+        movie_info = stripped_line.split(",")  # splitting by commas
+        for component in movie_info:
+            component.strip()  # stripping any spaces
         # setting variables to items in the array
         movie_name = movie_info[0]
         movie_release_year = movie_info[1]

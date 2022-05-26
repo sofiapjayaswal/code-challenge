@@ -1,5 +1,5 @@
 # Author: Sofia Jayaswal
-# Date: 05/23/2022
+# Date: 05/25/2022
 # Purpose: generate show times for movies in a theatre based on a given file of movies showing
 
 import sys
